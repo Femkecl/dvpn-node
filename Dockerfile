@@ -8,9 +8,9 @@ RUN apk add git gcc linux-headers make musl-dev && \
 
 RUN cd /root/ && \
     apk add autoconf automake file g++ git libtool make unbound-dev && \
-    git clone https://github.com/handshake-org/hnsd.git --branch=v1.0.0 --depth=1 && \
+    git clone https://github.com/handshake-org/hnsd.git && \
     cd /root/hnsd/ && \
-    bash autogen.sh && sh configure && make --jobs=$(nproc)
+    bash autogen.sh && sh configure && make --jobs=$(nproc) 
 
 FROM alpine:3.13
 
